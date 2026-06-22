@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Simulator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section>
+            <h1 class="white01">SIMULATOR AVERAGE</h1>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- HEADER : EMITEN -->
+        <!-- ===================================================== -->
+
+        <section class="card">
+
+        <!----><h2>Emiten</h2>
+
+            <div class="row">
+                <label>Nama Emiten</label>
+                <input class="decimal bold01" id="ticker" type="text" placeholder="ABCD">
+            </div>
+
+            <div class="row">
+                <label>Harga Sekarang</label>
+                <input class="decimal" id="x0" type="number" inputmode="decimal">
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- SUDAH DIMILIKI -->
+        <!-- ===================================================== -->
+
+        <section class="card">
+
+            <h2>Sudah Dimiliki</h2>
+
+            <!-- n1 -->
+            <div class="row">
+                <label>Lot Awal</label>
+
+                <div class="lot-input">
+                    <button id="n1-minus">-</button>
+                    <input class="integer" id="n1" type="number">
+                    <button id="n1-plus">+</button>
+                </div>
+            </div>
+
+            <!-- x1 -->
+            <div class="row">
+                <label>Harga Awal</label>
+                <input class="decimal" id="x1" type="number" inputmode="decimal">
+            </div>
+
+            <!-- OUTPUT -->
+            <div class="row bgwhite01-05 white01-50">
+                <label>Invested</label>
+                <span id="I1"></span>
+            </div>
+
+            <div class="row bgwhite01-00 white01-50">
+                <label>Market Value</label>
+                <span id="M1"></span>
+            </div>
+
+            <div class="row bgwhite01-05">
+                <label>Gain</label>
+                <span class="bold01" id="p1"></span>
+            </div>
+
+            <div class="row bgwhite01-00">
+                <label>P&L</label>
+                <span class="bold01" id="PL1"></span>
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- AKAN DIBELI -->
+        <!-- ===================================================== -->
+
+        <section class="card">
+
+            <h2>Akan Dibeli</h2>
+
+            <div class="row">
+                <label>Lot Beli</label>
+
+                <div class="lot-input">
+                    <button id="n2-minus">-</button>
+                    <input class="integer" id="n2" type="number">
+                    <button id="n2-plus">+</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <label>Harga Beli</label>
+                <input class="decimal" id="x2" type="number" inputmode="decimal">
+            </div>
+
+            <div class="row white01-50">
+                <label>Invested Baru</label>
+                <span id="I2"></span>
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- HASIL -->
+        <!-- ===================================================== -->
+
+        <section class="card">
+
+            <h2>Hasil</h2>
+
+            <div class="row bgwhite01-00">
+                <label>Total Lot</label>
+                <span id="n_total"></span>
+            </div>
+
+            <div class="row bgblue01">
+                <label class="bold01">Average Baru</label>
+                <span class="bold01" id="x_avg"></span>
+            </div>
+
+            <div class="row bgwhite01-00 white01-50">
+                <label>Invested Total</label>
+                <span id="I_total"></span>
+            </div>
+
+            <div class="row bgwhite01-05">
+                <label>Gain</label>
+                <span class="bold01" id="p_total"></span>
+            </div>
+
+            <div class="row bgwhite01-00">
+                <label>P&L</label>
+                <span class="bold01" id="PL_total"></span>
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- RESET -->
+        <!-- ===================================================== -->
+
+        <button id="reset-btn" class="reset-btn">
+            Reset All
+        </button>
+
+
+
+        <!-- ===================================================== -->
+        <!-- FUTURE TAB -->
+        <!-- ===================================================== 
+
+        <section class="card">
+            <h2>Gabung 2 Portfolio</h2>
+
+            <p>Coming Soon</p>
+
+        </section>
+        
+        -->
+
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+
+</body>
+
+</html>
