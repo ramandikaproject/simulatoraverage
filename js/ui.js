@@ -7,7 +7,7 @@ FORMAT HELPER
 export function formatCurrency(value) {
 
     return new Intl.NumberFormat(
-        "id-ID",
+        "en-US",
         {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
