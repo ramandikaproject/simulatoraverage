@@ -222,6 +222,14 @@ h2{
     font-weight: ;
 }
 
+span {
+
+    display: flex;
+    overflow: scroll;
+
+    max-width: 50%;
+}
+
 input {
 
     display: flex;
@@ -314,4 +322,6 @@ input {
 
 .reset-btn:hover {
     background:var(--red);
+
+    color: var(--white01);
 }
