@@ -26,6 +26,60 @@ function sanitizeInteger(value) {
 
 /*
 =========================================
+PARSE FLEXIBLE DECIMAL
+=========================================
+*/
+
+function parseDecimal(value) {
+
+    if (!value) return 0;
+
+    // User boleh ketik:
+    // 1000.5
+    // 1000,5
+
+    return Number(
+        value.replace(",", ".")
+    ) || 0;
+
+}
+
+/*
+=========================================
+SANITIZE DECIMAL INPUT
+=========================================
+*/
+
+function sanitizeDecimal(value) {
+
+    // Ubah koma menjadi titik
+    value = value.replace(/,/g, ".");
+
+    // Ambil hanya angka dan titik
+    value = value.replace(/[^0-9.]/g, "");
+
+    // Pecah berdasarkan titik
+    const parts = value.split(".");
+
+    // Jika tidak ada titik
+    if (parts.length <= 1) {
+
+        return value;
+
+    }
+
+    // Gabungkan kembali:
+    // hanya titik pertama yang dipertahankan
+    return (
+        parts[0]
+        + "."
+        + parts.slice(1).join("")
+    );
+
+}
+
+/*
+=========================================
 AUTO SELECT ALL INPUT
 =========================================
 */
@@ -91,9 +145,9 @@ function updateState() {
     document.getElementById("ticker").value;
 
     state.x0 =
-        Number(
+        parseDecimal(
             document.getElementById("x0").value
-        ) || 0;
+        );
 
     state.n1 =
         parseInt(
@@ -101,9 +155,9 @@ function updateState() {
         ) || 0;
 
     state.x1 =
-        Number(
+        parseDecimal(
             document.getElementById("x1").value
-        ) || 0;
+        );
 
     state.n2 =
         parseInt(
@@ -111,9 +165,9 @@ function updateState() {
         ) || 0;
 
     state.x2 =
-        Number(
+        parseDecimal(
             document.getElementById("x2").value
-        ) || 0;
+        );
 }
 
 
@@ -238,6 +292,7 @@ function registerLotValidation() {
 }
 
 
+
 /*
 =========================================
 NORMAL INPUTS
@@ -287,7 +342,8 @@ function registerInputs() {
 
     textInputs.forEach(id => {
 
-        const el = document.getElementById("ticker");
+        const el =
+            document.getElementById(id);
 
         el.addEventListener("input", (e) => {
 
@@ -302,6 +358,30 @@ function registerInputs() {
             setTimeout(() => {
                 el.select();
             }, 0);
+
+        });
+
+    });
+
+    /*
+    =========================================
+    PRICE INPUT VALIDATION
+    =========================================
+    */
+
+    ["x0", "x1", "x2"].forEach(id => {
+
+        const el =
+            document.getElementById(id);
+
+        el.addEventListener("input", () => {
+
+            el.value =
+                sanitizeDecimal(
+                    el.value
+                );
+
+            refresh();
 
         });
 
